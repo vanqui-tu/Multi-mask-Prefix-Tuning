@@ -72,8 +72,8 @@ def normalize_answer(s):
 def seed_worker(args, worker_id):
     if args.seed:
         worker_seed = args.seed
-        return
-    worker_seed = torch.initial_seed() % 2**32
+    else:
+        worker_seed = torch.initial_seed() % 2**32
     np.random.seed(worker_seed)
     random.seed(worker_seed)
 
