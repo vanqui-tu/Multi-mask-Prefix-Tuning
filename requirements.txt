@@ -1,0 +1,9 @@
+matplotlib 
+transformers 
+datasets
+thop 
+tensorboardX 
+scipy 
+scikit-learn 
+accelerate 
+bitsandbytes

@@ -1,0 +1,15 @@
+method='prefix-tuning' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 1.40 minutes for training / 5.19 seconds per epoch
+Test result | Loss : 0.0 | Score : 0.0
+method='prefix-tuning' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 4.04 minutes for training / 8.76 seconds per epoch
+Test result | Loss : 74.0 | Score : 74.0
+method='prefix-tuning' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 5.33 minutes for training / 8.77 seconds per epoch
+Test result | Loss : 74.4 | Score : 74.4
+method='prefix-tuning' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 9.17 minutes for training / 8.82 seconds per epoch
+Test result | Loss : 73.3 | Score : 71.8
+method='prefix-tuning' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 random_seed=42
+Took 6.98 minutes for training / 17.61 seconds per epoch
+Test result | Loss : 75.1 | Score : 75.1
