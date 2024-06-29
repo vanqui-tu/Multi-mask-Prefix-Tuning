@@ -39,6 +39,10 @@ class PrefixTuningConfig(PromptLearningConfig):
         default=False,
         metadata={"help": "Whether to project the prefix tokens"},
     )
+    apply_prefix_encoder_only: bool = field(
+        default=False,
+        metadata={"help": "Whether to apply soft prompt (prefix) only on encoder block."},
+    )
 
     def __post_init__(self):
         self.peft_type = PeftType.PREFIX_TUNING

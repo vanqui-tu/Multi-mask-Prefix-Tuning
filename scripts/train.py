@@ -39,7 +39,7 @@ from transformers import RobertaForMultipleChoice, T5ForConditionalGeneration
 
 from peft_models import get_peft_config, get_peft_model, PeftConfig, PeftModel, LoraConfig, PrefixTuningConfig, PromptEncoderConfig, PromptTuningConfig, PromptRoutingConfig, TaskType, PrefixRoutingConfig
 
-from src.t5_with_prefix import T5ForConditionalGenerationWithPrefix
+from src.t5_with_encoder_prefix import T5WithPrefixForConditionalGeneration
 from src.dataset import SuperGlueData
 from config.model_config import Config
 
@@ -131,7 +131,7 @@ def train(args):
     if args.method == "lora":
         peft_config = LoraConfig(task_type=task_type, inference_mode=False, r=8, lora_alpha=8, lora_dropout=0.1)
     elif args.method == "prefix-tuning":
-        peft_config = PrefixTuningConfig(task_type=task_type, num_virtual_tokens=args.num_virtual_tokens) #, prefix_projection=True, encoder_hidden_size=512)
+        peft_config = PrefixTuningConfig(task_type=task_type, num_virtual_tokens=args.num_virtual_tokens, apply_prefix_encoder_only=True) #, prefix_projection=True, encoder_hidden_size=512)
     elif args.method == "p-tuning":
         peft_config = PromptEncoderConfig(task_type=task_type, num_virtual_tokens=args.num_virtual_tokens, encoder_hidden_size=128)
     elif args.method == "prompt-tuning":
@@ -157,14 +157,10 @@ def train(args):
             model = AutoModelForSequenceClassification.from_pretrained(model_name_or_path, config=config)    
     # T5
     elif 't5' in args.model_name_or_path:
-        # if args.method == 'prefix-tuning':
-        #     config.num_prefix = 20
-        #     config.reparam = True
-        #     config.reparam_dim=512
-        #     config.no_decoder_self_attn=False
-        #     model = T5ForConditionalGenerationWithPrefix.from_pretrained(model_name_or_path, config=config)
-        # else:
-        model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path, config=config)
+        if args.method == 'prefix-tuning':
+            model = T5WithPrefixForConditionalGeneration.from_pretrained(model_name_or_path, config=config)
+        else:
+            model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path, config=config)
 
     model.resize_token_embeddings(len(tokenizer))
     if args.method != "full":

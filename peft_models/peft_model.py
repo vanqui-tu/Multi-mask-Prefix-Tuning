@@ -195,7 +195,11 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
                     transformer_backbone = module
                     self.transformer_backbone_name = name
                 num_transformer_submodules += 1
-        self.peft_config.num_transformer_submodules = 2 if self.peft_config.task_type == TaskType.SEQ_2_SEQ_LM else 1
+
+        self.peft_config.num_transformer_submodules = 1 
+        if self.peft_config.task_type == TaskType.SEQ_2_SEQ_LM:
+          if self.peft_config.apply_prefix_encoder_only != True:
+            self.peft_config.num_transformer_submodules = 2
 
         for named_param, value in list(transformer_backbone.named_parameters()):
             if value.shape[0] == self.base_model.config.vocab_size:
@@ -262,6 +266,8 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
                 peft_config.num_attention_heads,
                 peft_config.token_dim // peft_config.num_attention_heads,
             )
+            if peft_config.apply_prefix_encoder_only == True:
+              peft_config.num_transformer_submodules = 1
             if peft_config.num_transformer_submodules == 2:
                 past_key_values = torch.cat([past_key_values, past_key_values], dim=2)
             past_key_values = past_key_values.permute([2, 0, 3, 1, 4]).split(
@@ -717,6 +723,11 @@ class PeftModelForSeq2SeqLM(PeftModel):
             prefix_attention_mask = torch.ones(batch_size, self.peft_config.num_virtual_tokens).to(self.device)
             # decoder_attention_mask = torch.cat((prefix_attention_mask, decoder_attention_mask), dim=1)
 
+        if self.peft_config.apply_prefix_encoder_only == True:
+            if attention_mask is not None:
+              prefix_attention_mask = torch.ones(batch_size, self.peft_config.num_virtual_tokens).to(self.device)
+              attention_mask = torch.cat((prefix_attention_mask, attention_mask), dim=1)
+
         if kwargs.get("position_ids", None) is not None:
             warnings.warn("Position ids are not supported for parameter efficient tuning. Ignoring position ids.")
             kwargs["position_ids"] = None
@@ -736,7 +747,7 @@ class PeftModelForSeq2SeqLM(PeftModel):
         decoder_input_ids1 = decoder_input_ids
         if self.peft_config.peft_type == PeftType.PREFIX_TUNING:
             past_prompt = self.get_past_prompt(batch_size)
-            return self.base_model(input_ids=input_ids, decoder_input_ids=decoder_input_ids, past_key_values=past_prompt, **kwargs)
+            return self.base_model(input_ids=input_ids, decoder_input_ids=decoder_input_ids, encoder_prefix=past_prompt, **kwargs)
 
         else:
             if inputs_embeds is None:
