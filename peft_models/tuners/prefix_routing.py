@@ -95,8 +95,15 @@ class PrefixRoutingEncoder(torch.nn.Module):
         super().__init__()
         self.config = config
         total_virtual_tokens = config.num_virtual_tokens_full # * config.num_transformer_submodules
+        num_shared_tokens = 4
+        total_virtual_tokens = total_virtual_tokens - num_shared_tokens
+
         self.embedding = torch.nn.Embedding(total_virtual_tokens, config.token_dim*config.num_layers * 2)
-        
+
+        self.sharedTokens = torch.arange(0, num_shared_tokens)
+
+        self.sharedEmbedding = torch.nn.Embedding(num_shared_tokens, config.token_dim*config.num_layers * 2)
+
         # Linear router
         assert config.num_virtual_tokens_full % config.num_virtual_tokens == 0
         self.n_routes = config.num_virtual_tokens_full // config.num_virtual_tokens
@@ -129,7 +136,6 @@ class PrefixRoutingEncoder(torch.nn.Module):
         batch_size = inputs_embeds.shape[0]
         num_virtual_tokens_full = self.config.num_virtual_tokens_full
         num_virtual_tokens = self.config.num_virtual_tokens
-
         hiddens = inputs_embeds
         sentence_sum = torch.sum(hiddens * attention_mask.unsqueeze(-1), dim=1)
         non_zero_count = torch.clamp(torch.sum(attention_mask, dim=1, keepdim=True), min=1)
@@ -156,21 +162,22 @@ class PrefixRoutingEncoder(torch.nn.Module):
             idx = (idx*self.config.num_virtual_tokens).unsqueeze(-1) + torch.arange(0, self.config.num_virtual_tokens, device='cuda').unsqueeze(0).unsqueeze(0)
         
         if not self.config.stochastic:
-            prompt_embeddings = self.embedding(idx) * values.unsqueeze(-1).unsqueeze(-1)
+            prompt_embeddings = self.sharedEmbedding(self.sharedTokens) +  self.embedding(idx) * values.unsqueeze(-1).unsqueeze(-1)
             prompt_embeddings = torch.sum(prompt_embeddings, dim=1).squeeze()
             balancing_factor = probs_mean * load_counts #  probs_mean * load_counts 
         else:
             if self.training:
-                prompt_embeddings = self.embedding(idx)
+                prompt_embeddings = self.sharedEmbedding(self.sharedTokens) + self.embedding(idx)
             else:
-                prompt_embeddings = torch.mean(torch.stack(torch.chunk(self.embedding.weight.data, self.n_routes, dim=0)), dim=0)
-                prompt_embeddings = prompt_embeddings.repeat(batch_size, 1, 1)
+                prompt_embeddings = self.sharedEmbedding(self.sharedTokens) + self.embedding(idx)
+                # prompt_embeddings = torch.mean(torch.stack(torch.chunk(self.embedding.weight.data, self.n_routes, dim=0)), dim=0)
+                # prompt_embeddings = prompt_embeddings.repeat(batch_size, 1, 1)
         if prompt_embeddings.dim() == 2:
             prompt_embeddings = prompt_embeddings.unsqueeze(0)
 
         if self.analysis:
             indices = torch.full((batch_size, 1), self.prompt_index * self.config.num_virtual_tokens, device='cuda').long() + torch.arange(0, self.config.num_virtual_tokens, device='cuda').repeat(batch_size, 1)
-            prompt_embeddings = self.embedding(indices)# * probs[:, self.prompt_index].unsqueeze(-1).unsqueeze(-1)
+            prompt_embeddings = self.sharedEmbedding(self.sharedTokens) + self.embedding(indices)# * probs[:, self.prompt_index].unsqueeze(-1).unsqueeze(-1)
                 
 
         return prompt_embeddings
