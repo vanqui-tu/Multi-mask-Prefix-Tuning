@@ -1,49 +1,0 @@
-nohup: ignoring input
-/opt/conda/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 random_seed=42
-Formatting dataset:   0%|                                                  | 0/2240 [00:00<?, ?it/s]Formatting dataset:  14%|█████▏                                | 304/2240 [00:00<00:00, 3032.87it/s]Formatting dataset:  27%|██████████▍                           | 614/2240 [00:00<00:00, 3070.62it/s]Formatting dataset:  42%|███████████████▉                      | 940/2240 [00:00<00:00, 3151.21it/s]Formatting dataset:  57%|█████████████████████                | 1272/2240 [00:00<00:00, 3212.16it/s]Formatting dataset:  71%|██████████████████████████▎          | 1594/2240 [00:00<00:00, 3198.01it/s]Formatting dataset:  85%|███████████████████████████████▌     | 1914/2240 [00:00<00:00, 3131.05it/s]Formatting dataset: 100%|████████████████████████████████████▉| 2233/2240 [00:00<00:00, 3146.32it/s]Formatting dataset: 100%|█████████████████████████████████████| 2240/2240 [00:00<00:00, 3147.26it/s]
-Formatting dataset:   0%|                                                   | 0/250 [00:00<?, ?it/s]Formatting dataset: 100%|███████████████████████████████████████| 250/250 [00:00<00:00, 3092.63it/s]
-Formatting dataset:   0%|                                                   | 0/277 [00:00<?, ?it/s]Formatting dataset: 100%|███████████████████████████████████████| 277/277 [00:00<00:00, 3204.66it/s]
-prompt_encoder.embedding.weight 368640
-trainable params: 368640 || all params: 223250688 || trainable%: 0.1651237912422469
-Train:   0%|                                                                 | 0/70 [00:00<?, ?it/s]Train:   1%|▊                                                        | 1/70 [00:01<01:27,  1.27s/it]                                                                                                    Traceback (most recent call last):
-  File "/home/SMoP/scripts/train.py", line 595, in <module>
-    train(args)
-  File "/home/SMoP/scripts/train.py", line 227, in train
-    train_loss, step, log_loss, train_time = train_epoch(model, optimizer, scheduler, scaler, train_dataloader, accum_steps, tb_writer, step, log_step, log_loss, device, metric, tokenizer)
-  File "/home/SMoP/scripts/train.py", line 360, in train_epoch
-    outputs = model.forward(input_ids=input_ids, attention_mask=att_mask, labels=labels)
-  File "/home/SMoP/peft_models/peft_model.py", line 739, in forward
-    return self.base_model(input_ids=input_ids, decoder_input_ids=decoder_input_ids, past_key_values=past_prompt, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1740, in forward
-    decoder_outputs = self.decoder(
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1107, in forward
-    layer_outputs = layer_module(
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 717, in forward
-    cross_attention_outputs = self.layer[1](
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 628, in forward
-    attention_output = self.EncDecAttention(
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 524, in forward
-    scores = torch.matmul(
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB. GPU 0 has a total capacity of 23.69 GiB of which 5.06 MiB is free. Process 1419464 has 5.74 GiB memory in use. Process 1421402 has 7.07 GiB memory in use. Process 1425451 has 8.28 GiB memory in use. Process 1426767 has 2.57 GiB memory in use. Of the allocated memory 2.15 GiB is allocated by PyTorch, and 111.97 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

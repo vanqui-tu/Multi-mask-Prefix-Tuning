@@ -266,11 +266,15 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
                 peft_config.num_attention_heads,
                 peft_config.token_dim // peft_config.num_attention_heads,
             )
+            
             if peft_config.apply_prefix_encoder_only == True:
               peft_config.num_transformer_submodules = 1
             if peft_config.num_transformer_submodules == 2:
                 past_key_values = torch.cat([past_key_values, past_key_values], dim=2)
-            past_key_values = past_key_values.permute([2, 0, 3, 1, 4]).split(
+
+            ### ADAPTIVE PREFIX
+            past_key_values = past_key_values.permute([2, 0, 3, 1, 4]) * torch.sigmoid(self.prompt_encoder.mask).expand(-1, batch_size, peft_config.num_attention_heads, -1, peft_config.token_dim // peft_config.num_attention_heads)
+            past_key_values = past_key_values.split(
                 peft_config.num_transformer_submodules * 2
             )
             if TRANSFORMERS_MODELS_TO_PREFIX_TUNING_POSTPROCESS_MAPPING.get(self.config.model_type, None) is not None:
@@ -744,7 +748,7 @@ class PeftModelForSeq2SeqLM(PeftModel):
                 "return_dict": return_dict,
             }
         )
-        decoder_input_ids1 = decoder_input_ids
+        # decoder_input_ids1 = decoder_input_ids
         if self.peft_config.peft_type == PeftType.PREFIX_TUNING:
             past_prompt = self.get_past_prompt(batch_size)
             return self.base_model(input_ids=input_ids, decoder_input_ids=decoder_input_ids, encoder_prefix=past_prompt, **kwargs)

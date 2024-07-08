@@ -20,7 +20,7 @@ from .peft_model import (
     PeftModelForSequenceClassification,
     PeftModelForTokenClassification,
 )
-from .tuners import LoraConfig, PrefixTuningConfig, PromptEncoderConfig, PromptTuningConfig, PromptRoutingConfig, PrefixRoutingConfig
+from .tuners import LoraConfig, PrefixTuningConfig, PromptEncoderConfig, PromptTuningConfig, PromptRoutingConfig, PrefixRoutingConfig, AdaptivePrefixTuningConfig
 from .utils import PromptLearningConfig
 
 
@@ -37,7 +37,8 @@ PEFT_TYPE_TO_CONFIG_MAPPING = {
     "P_TUNING": PromptEncoderConfig,
     "LORA": LoraConfig,
     "PROMPT_ROUTING": PromptRoutingConfig,
-    "PREFIX_ROUTING": PrefixRoutingConfig
+    "PREFIX_ROUTING": PrefixRoutingConfig,
+    "ADAPTIVE_PREFIX_TUNING": AdaptivePrefixTuningConfig
 
 }
 
