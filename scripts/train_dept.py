@@ -666,7 +666,8 @@ def main():
         scheduler = get_linear_schedule_with_warmup(
             optimizer, num_warmup_steps=training_args.warmup_steps, num_training_steps=num_training_steps
         )    
-        
+    
+    training_args.save_safetensors = False
     # Initialize our Trainer
     if task_type == TaskType.SEQ_CLS:
         logger.info(f"\nUsing the default trainer for {task_type}\n\n")

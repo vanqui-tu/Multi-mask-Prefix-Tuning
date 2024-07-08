@@ -198,7 +198,7 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
 
         self.peft_config.num_transformer_submodules = 1 
         if self.peft_config.task_type == TaskType.SEQ_2_SEQ_LM:
-          if self.peft_config.apply_prefix_encoder_only != True:
+          if self.peft_config.peft_type == PeftType.PREFIX_TUNING and self.peft_config.apply_prefix_encoder_only != True:
             self.peft_config.num_transformer_submodules = 2
 
         for named_param, value in list(transformer_backbone.named_parameters()):
@@ -727,7 +727,7 @@ class PeftModelForSeq2SeqLM(PeftModel):
             prefix_attention_mask = torch.ones(batch_size, self.peft_config.num_virtual_tokens).to(self.device)
             # decoder_attention_mask = torch.cat((prefix_attention_mask, decoder_attention_mask), dim=1)
 
-        if self.peft_config.apply_prefix_encoder_only == True:
+        if self.peft_config.peft_type == PeftType.PREFIX_TUNING and self.peft_config.apply_prefix_encoder_only == True:
             if attention_mask is not None:
               prefix_attention_mask = torch.ones(batch_size, self.peft_config.num_virtual_tokens).to(self.device)
               attention_mask = torch.cat((prefix_attention_mask, attention_mask), dim=1)

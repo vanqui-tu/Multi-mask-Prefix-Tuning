@@ -20,6 +20,7 @@
 from .lora import LoraConfig, LoraModel
 from .p_tuning import PromptEncoder, PromptEncoderConfig, PromptEncoderReparameterizationType
 from .prefix_tuning import PrefixEncoder, PrefixTuningConfig
+from .adaptive_prefix_tuning import AdaptivePrefixEncoder, AdaptivePrefixTuningConfig
 from .prompt_tuning import PromptEmbedding, PromptTuningConfig, PromptTuningInit
 from .prompt_routing import PromptRoutingConfig, PromptRoutingInit, PromptRoutingEmbedding
 from .prefix_routing import PrefixRoutingEncoder, PrefixRoutingConfig

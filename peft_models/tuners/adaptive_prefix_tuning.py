@@ -36,6 +36,7 @@ import torch
 from ..utils import PeftType, PromptLearningConfig
 
 
+### NOT YET COMPLETED 
 @dataclass
 class AdaptivePrefixTuningConfig(PromptLearningConfig):
     """
