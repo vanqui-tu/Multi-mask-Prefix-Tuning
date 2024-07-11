@@ -43,6 +43,10 @@ class PrefixTuningConfig(PromptLearningConfig):
         default=False,
         metadata={"help": "Whether to apply soft prompt (prefix) only on encoder block."},
     )
+    apply_adaptive_mask: bool = field(
+        default=False,
+        metadata={"help": "Whether to apply adaptive mask on prompt (prefix)."},
+    )
 
     def __post_init__(self):
         self.peft_type = PeftType.PREFIX_TUNING
@@ -88,6 +92,7 @@ class PrefixEncoder(torch.nn.Module):
 
     def __init__(self, config):
         super().__init__()
+        self.config = config
         self.prefix_projection = config.prefix_projection
         token_dim = config.token_dim
         num_layers = config.num_layers
@@ -104,8 +109,9 @@ class PrefixEncoder(torch.nn.Module):
         else:
             self.embedding = torch.nn.Embedding(num_virtual_tokens, num_layers * 2 * token_dim)
 
-        self.mask = torch.nn.Parameter(torch.zeros([self.n_layer, 1, 1, self.pre_seq_len, 1]))
-        # torch.nn.init.constant_(self.mask, 2.5)
+        if config.apply_adaptive_mask == True:
+            self.mask = torch.nn.Parameter(torch.zeros([num_layers, 1, 1, num_virtual_tokens, 1]))
+            # torch.nn.init.constant_(self.mask, 2.5)
 
 
     def forward(self, prefix: torch.Tensor):

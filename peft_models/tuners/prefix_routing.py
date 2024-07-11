@@ -84,6 +84,10 @@ class PrefixRoutingConfig(PromptLearningConfig):
             "help": "Whether to use the auxiliary load balancing loss or not."
         }    
     )
+    apply_adaptive_mask: bool = field(
+        default=False,
+        metadata={"help": "Whether to apply adaptive mask on prompt (prefix)."},
+    )
     def __post_init__(self):
         self.peft_type = PeftType.PREFIX_ROUTING
 
@@ -124,6 +128,9 @@ class PrefixRoutingEncoder(torch.nn.Module):
         self.probs_sum = torch.zeros_like(self.load_counts)
         self.analysis = False
 
+        if config.apply_adaptive_mask == True:
+            self.mask = torch.nn.Parameter(torch.zeros([config.num_layers, 1, 1, config.num_virtual_tokens, 1]))
+            # torch.nn.init.constant_(self.mask, 2.5)
 
     def forward(self, indices, input_ids, inputs_embeds, attention_mask, base_model=None):
         batch_size = inputs_embeds.shape[0]

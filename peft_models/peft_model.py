@@ -272,8 +272,11 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
             if peft_config.num_transformer_submodules == 2:
                 past_key_values = torch.cat([past_key_values, past_key_values], dim=2)
 
-            ### ADAPTIVE PREFIX
-            past_key_values = past_key_values.permute([2, 0, 3, 1, 4]) * torch.sigmoid(self.prompt_encoder.mask).expand(-1, batch_size, peft_config.num_attention_heads, -1, peft_config.token_dim // peft_config.num_attention_heads)
+            past_key_values = past_key_values.permute([2, 0, 3, 1, 4]) 
+            ### APPLY ADAPTIVE MASK
+            if peft_config.apply_adaptive_mask == True:
+                past_key_values *= torch.sigmoid(self.prompt_encoder.mask).repeat(peft_config.num_transformer_submodules*2,1,1,1,1).expand(-1, batch_size, peft_config.num_attention_heads, -1, peft_config.token_dim // peft_config.num_attention_heads)
+            ###
             past_key_values = past_key_values.split(
                 peft_config.num_transformer_submodules * 2
             )
@@ -311,7 +314,13 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
         )
         if peft_config.num_transformer_submodules == 2:
             past_key_values = torch.cat([past_key_values, past_key_values], dim=2)
-        past_key_values = past_key_values.permute([2, 0, 3, 1, 4]).split(
+            
+        past_key_values = past_key_values.permute([2, 0, 3, 1, 4])
+        ### APPLY ADAPTIVE MASK
+            if peft_config.apply_adaptive_mask == True:
+                past_key_values *= torch.sigmoid(self.prompt_encoder.mask).repeat(peft_config.num_transformer_submodules*2,1,1,1,1).expand(-1, batch_size, peft_config.num_attention_heads, -1, peft_config.token_dim // peft_config.num_attention_heads)
+        ###
+        past_key_values = past_key_values.split(
             peft_config.num_transformer_submodules * 2
         )
         if TRANSFORMERS_MODELS_TO_PREFIX_TUNING_POSTPROCESS_MAPPING.get(self.config.model_type, None) is not None:

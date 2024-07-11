@@ -586,6 +586,7 @@ if __name__ == "__main__":
     parser.add_argument('--topk', type=int, default=1)
     parser.add_argument('--stochastic', type=_bool, default=False)
     parser.add_argument('--gumbel', type=_bool, default=False)
+    parser.add_argument('--apply_adaptive_mask', type=_bool, default=False)
     args = parser.parse_args()
 
     train(args)
