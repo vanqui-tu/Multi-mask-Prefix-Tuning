@@ -1,0 +1,9 @@
+Namespace(seed=None, subsetlr=0.05, lr=0.005, warmup_ratio=0.06, batch_size=32, step_batch_size=None, epoch=30, max_length=256, weight_decay=0, dataset_name='rte_superglue', model_name_or_path='t5-base', tokenizer_name_or_path='t5-base', random_seed=42, method='prefix-routing', num_virtual_tokens=1, num_shared_virtual_tokens=10, num_virtual_tokens_full=8, routing_level='prompt', consistency_alpha=0.1, init_copy=True, perturb_router=1, topk=1, stochastic=False, gumbel=False, shareType='Prepend', sharedEmbeddinglr=0.05, routerlr=0.0005, apply_adaptive_mask=1)
+lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=1 random_seed=42
+prompt_encoder.embedding.weight 147456
+prompt_encoder.sharedEmbedding.weight 184320
+prompt_encoder.router.0.weight 6144
+trainable params: 337920 || all params: 223219968 || trainable%: 0.15138430626421379
+torch.Size([32, 1, 18432])
+torch.Size([32, 18432])
+torch.Size([32, 10, 18432])

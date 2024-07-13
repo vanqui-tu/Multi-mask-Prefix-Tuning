@@ -1,0 +1,18 @@
+method='prefix-routing' dataset_name='cb' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.74 minutes for training / 2.43 seconds per epoch
+Test result | Loss : 0.0 | Score : 76.8
+method='prefix-routing' dataset_name='cb' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.76 minutes for training / 2.38 seconds per epoch
+Test result | Loss : 0.0 | Score : 85.7
+method='prefix-routing' dataset_name='cb' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 2.83 minutes for training / 2.43 seconds per epoch
+Test result | Loss : 0.0 | Score : 87.5
+method='prefix-routing' dataset_name='cb' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.90 minutes for training / 2.43 seconds per epoch
+Test result | Loss : 0.0 | Score : 85.7
+method='prefix-routing' dataset_name='cb' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.91 minutes for training / 2.41 seconds per epoch
+Test result | Loss : 0.0 | Score : 87.5
+method='prefix-routing' dataset_name='cb' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 3.02 minutes for training / 2.39 seconds per epoch
+Test result | Loss : 0.0 | Score : 80.4

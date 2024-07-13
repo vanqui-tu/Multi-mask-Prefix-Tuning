@@ -1,0 +1,9 @@
+method='prefix-routing' dataset_name='boolq' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=2 random_seed=42
+Took 78.99 minutes for training / 120.59 seconds per epoch
+Test result | Loss : 0.0 | Score : 77.4
+method='prefix-routing' dataset_name='boolq' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=5 random_seed=42
+Took 83.56 minutes for training / 126.74 seconds per epoch
+Test result | Loss : 0.0 | Score : 76.9
+method='prefix-routing' dataset_name='boolq' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=4 random_seed=42
+Took 84.19 minutes for training / 122.61 seconds per epoch
+Test result | Loss : 0.0 | Score : 77.1

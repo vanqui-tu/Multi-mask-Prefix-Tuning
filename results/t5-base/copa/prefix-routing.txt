@@ -1,0 +1,9 @@
+method='prefix-routing' dataset_name='copa' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.03 minutes for training / 1.68 seconds per epoch
+Test result | Loss : 0.0 | Score : 59.0
+method='prefix-routing' dataset_name='copa' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.10 minutes for training / 1.74 seconds per epoch
+Test result | Loss : 0.0 | Score : 65.0
+method='prefix-routing' dataset_name='copa' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 2.15 minutes for training / 1.75 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.0

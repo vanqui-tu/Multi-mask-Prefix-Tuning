@@ -1,0 +1,108 @@
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 5.87 minutes for training / 10.14 seconds per epoch
+Test result | Loss : 76.9 | Score : 74.7
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=1 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 0.25 minutes for training / 11.83 seconds per epoch
+Test result | Loss : 71.1 | Score : 71.1
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=1 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 0.25 minutes for training / 11.57 seconds per epoch
+Test result | Loss : 69.0 | Score : 69.0
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=1 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 0.26 minutes for training / 12.00 seconds per epoch
+Test result | Loss : 46.2 | Score : 46.2
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=1 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 0.24 minutes for training / 11.30 seconds per epoch
+Test result | Loss : 68.2 | Score : 68.2
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 8.05 minutes for training / 10.13 seconds per epoch
+Test result | Loss : 78.0 | Score : 78.7
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 7.30 minutes for training / 10.03 seconds per epoch
+Test result | Loss : 76.2 | Score : 76.2
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 4.26 minutes for training / 10.15 seconds per epoch
+Test result | Loss : 73.3 | Score : 71.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 8.52 minutes for training / 10.05 seconds per epoch
+Test result | Loss : 75.5 | Score : 75.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 2.59 minutes for training / 10.12 seconds per epoch
+Test result | Loss : 66.4 | Score : 69.3
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 3.52 minutes for training / 10.09 seconds per epoch
+Test result | Loss : 69.7 | Score : 69.7
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 5.74 minutes for training / 10.10 seconds per epoch
+Test result | Loss : 74.7 | Score : 74.4
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 4.06 minutes for training / 10.16 seconds per epoch
+Test result | Loss : 77.3 | Score : 77.3
+<<<<<<< HEAD
+=======
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=80 perturb_router=True topk=1 random_seed=42
+Took 5.42 minutes for training / 10.12 seconds per epoch
+Test result | Loss : 80.5 | Score : 80.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=14 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 9.86 minutes for training / 11.00 seconds per epoch
+Test result | Loss : 71.5 | Score : 71.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 6.61 minutes for training / 18.64 seconds per epoch
+Test result | Loss : 73.6 | Score : 73.6
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=80 perturb_router=True topk=1 random_seed=42
+Took 7.80 minutes for training / 19.87 seconds per epoch
+Test result | Loss : 77.3 | Score : 77.3
+------------------------------------------------------------------------------------------
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
+Took 6.86 minutes for training / 18.29 seconds per epoch
+Test result | Loss : 74.7 | Score : 74.0
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=80 perturb_router=True topk=1 random_seed=42
+Took 10.69 minutes for training / 19.60 seconds per epoch
+Test result | Loss : 75.8 | Score : 75.8
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 10.59 minutes for training / 19.50 seconds per epoch
+Test result | Loss : 73.3 | Score : 73.3
+
+
+------shared learning rate = 1/10----
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 7.37 minutes for training / 19.63 seconds per epoch
+Test result | Loss : 75.1 | Score : 75.1
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 8.03 minutes for training / 19.52 seconds per epoch
+Test result | Loss : 76.5 | Score : 76.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 16.21 minutes for training / 19.48 seconds per epoch
+Test result | Loss : 73.6 | Score : 73.6
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 11.09 minutes for training / 19.99 seconds per epoch
+Test result | Loss : 78.7 | Score : 78.7
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 11.17 minutes for training / 19.63 seconds per epoch
+Test result | Loss : 74.7 | Score : 74.7
+
+------------------------------------------------------------------------------------------------------
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=80 perturb_router=True topk=1 random_seed=42
+Took 13.22 minutes for training / 19.69 seconds per epoch
+Test result | Loss : 75.5 | Score : 75.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=80 perturb_router=True topk=1 random_seed=42
+Took 8.11 minutes for training / 19.58 seconds per epoch
+Test result | Loss : 77.6 | Score : 77.6
+method='prompt-routing' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=80 perturb_router=True topk=1 random_seed=42
+Took 11.98 minutes for training / 19.68 seconds per epoch
+Test result | Loss : 74.7 | Score : 74.7
+
+
+Pick learning rate
+{'params': model.prompt_encoder.embedding.parameters(), 'lr': args.lr/10}, 
+-------------------------------------------------------------------------------
+method='prompt-routing' dataset_name='rte_superglue' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 9.71 minutes for training / 19.66 seconds per epoch
+Test result | Loss : 69.7 | Score : 70.0
+{'params': model.prompt_encoder.embedding.parameters(), 'lr': args.lr*10}, 
+method='prompt-routing' dataset_name='rte_superglue' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 15.81 minutes for training / 19.80 seconds per epoch
+Test result | Loss : 74.4 | Score : 75.5
+method='prompt-routing' dataset_name='rte_superglue' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=20 num_virtual_tokens_full=50 perturb_router=True topk=1 random_seed=42
+Took 5.37 minutes for training / 19.71 seconds per epoch
+Test result | Loss : 69.0 | Score : 69.3
+>>>>>>> 66e813c (Initial commit on sharedTokens)

@@ -1,0 +1,5 @@
+Epoch 1
+Train: tensor([5288., 1319., 1313.,  563.], device='cuda:0')
+Validation: tensor([661., 283.,   0.,   0.], device='cuda:0')
+Test: tensor([2396.,  874.,    0.,    0.], device='cuda:0')
+Epoch 2

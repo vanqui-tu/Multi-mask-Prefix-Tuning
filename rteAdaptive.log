@@ -1,0 +1,30 @@
+nohup: ignoring input
+Namespace(seed=None, subsetlr=0.05, lr=0.005, warmup_ratio=0.06, batch_size=32, step_batch_size=None, epoch=50, max_length=256, weight_decay=0, dataset_name='rte_superglue', model_name_or_path='t5-base', tokenizer_name_or_path='t5-base', random_seed=42, method='prefix-routing', num_virtual_tokens=1, num_shared_virtual_tokens=10, num_virtual_tokens_full=8, routing_level='prompt', consistency_alpha=0.1, init_copy=True, perturb_router=1, topk=1, stochastic=False, gumbel=False, shareType='Prepend', sharedEmbeddinglr=0.05, routerlr=0.0005, apply_adaptive_mask=1)
+lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Formatting dataset:   0%|                                                  | 0/2240 [00:00<?, ?it/s]Formatting dataset:  13%|████▉                                 | 291/2240 [00:00<00:00, 2901.56it/s]Formatting dataset:  27%|██████████▏                           | 600/2240 [00:00<00:00, 3007.13it/s]Formatting dataset:  42%|███████████████▊                      | 931/2240 [00:00<00:00, 3143.57it/s]Formatting dataset:  57%|████████████████████▉                | 1268/2240 [00:00<00:00, 3229.98it/s]Formatting dataset:  71%|██████████████████████████▎          | 1592/2240 [00:00<00:00, 3164.60it/s]Formatting dataset:  85%|███████████████████████████████▌     | 1909/2240 [00:00<00:00, 3094.02it/s]Formatting dataset: 100%|████████████████████████████████████▊| 2232/2240 [00:00<00:00, 3136.10it/s]Formatting dataset: 100%|█████████████████████████████████████| 2240/2240 [00:00<00:00, 3123.93it/s]
+Formatting dataset:   0%|                                                   | 0/250 [00:00<?, ?it/s]Formatting dataset: 100%|███████████████████████████████████████| 250/250 [00:00<00:00, 3118.11it/s]
+Formatting dataset:   0%|                                                   | 0/277 [00:00<?, ?it/s]Formatting dataset: 100%|███████████████████████████████████████| 277/277 [00:00<00:00, 3360.94it/s]
+prompt_encoder.embedding.weight 147456
+prompt_encoder.sharedEmbedding.weight 184320
+prompt_encoder.router.0.weight 6144
+trainable params: 337920 || all params: 223219968 || trainable%: 0.15138430626421379
+Train:   0%|                                                                 | 0/70 [00:00<?, ?it/s]                                                                                                    Traceback (most recent call last):
+  File "/root/SMoP/scripts/train.py", line 616, in <module>
+    train(args)
+  File "/root/SMoP/scripts/train.py", line 230, in train
+    train_loss, step, log_loss, train_time = train_epoch(model, optimizer, scheduler, scaler, train_dataloader, accum_steps, tb_writer, step, log_step, log_loss, device, metric, tokenizer)
+  File "/root/SMoP/scripts/train.py", line 367, in train_epoch
+    outputs = model.forward(input_ids=input_ids, attention_mask=att_mask, labels=labels)
+  File "/root/SMoP/peft_models/peft_model.py", line 777, in forward
+    past_prompt = self.get_prefix_routing(batch_size=batch_size, input_ids=input_ids, inputs_embeds=inputs_embeds, attention_mask=attention_mask)
+  File "/root/SMoP/peft_models/peft_model.py", line 294, in get_prefix_routing
+    prompts = self.prompt_encoder(prompt_tokens, input_ids, inputs_embeds, attention_mask)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/SMoP/peft_models/tuners/prefix_routing.py", line 183, in forward
+    mask = torch.cat((self.mask, self.subsetMask[idx]), dim=3)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1688, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'PrefixRoutingEncoder' object has no attribute 'mask'
