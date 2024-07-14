@@ -861,6 +861,7 @@ class PeftModelForSeq2SeqLM(PeftModel):
 
 
             elif peft_config.peft_type in [
+                PeftType.PROMPT_ROUTING,
                 PeftType.PROMPT_TUNING,
                 PeftType.P_TUNING,
                 PeftType.MULTITASK_PROMPT_TUNING,
