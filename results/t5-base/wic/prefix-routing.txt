@@ -1,0 +1,48 @@
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=15 num_virtual_tokens=1 random_seed=42
+Took 6.13 minutes for training / 18.85 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.4
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=15 num_virtual_tokens=5 random_seed=42
+Took 6.16 minutes for training / 19.39 seconds per epoch
+Test result | Loss : 0.0 | Score : 62.5
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=15 num_virtual_tokens=1 random_seed=42
+Took 6.28 minutes for training / 18.89 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.1
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=2 random_seed=42
+Took 18.86 minutes for training / 17.99 seconds per epoch
+Test result | Loss : 0.0 | Score : 63.3
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=5 random_seed=42
+Took 19.57 minutes for training / 18.48 seconds per epoch
+Test result | Loss : 0.0 | Score : 61.9
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=10 random_seed=42
+Took 20.24 minutes for training / 19.11 seconds per epoch
+Test result | Loss : 0.0 | Score : 62.4
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 14.29 minutes for training / 13.72 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.6
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=1 random_seed=42
+Took 12.31 minutes for training / 19.38 seconds per epoch
+Test result | Loss : 0.0 | Score : 63.5
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=1 random_seed=42
+Took 12.55 minutes for training / 19.26 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.4
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=1 random_seed=42
+Took 12.93 minutes for training / 20.07 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.1
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 20.47 minutes for training / 19.55 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.9
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 20.53 minutes for training / 19.63 seconds per epoch
+Test result | Loss : 0.0 | Score : 64.1
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 20.60 minutes for training / 19.84 seconds per epoch
+Test result | Loss : 0.0 | Score : 63.9
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 22.03 minutes for training / 19.23 seconds per epoch
+Test result | Loss : 0.0 | Score : 63.8
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 22.42 minutes for training / 19.43 seconds per epoch
+Test result | Loss : 0.0 | Score : 63.9
+method='prefix-routing' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 22.47 minutes for training / 19.52 seconds per epoch
+Test result | Loss : 0.0 | Score : 63.5
