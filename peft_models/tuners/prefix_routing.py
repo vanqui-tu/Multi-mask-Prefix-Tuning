@@ -153,6 +153,7 @@ class PrefixRoutingEncoder(torch.nn.Module):
         if config.apply_adaptive_mask == True:
             if config.apply_adaptive_subset_mask:
                 self.mask = torch.nn.Parameter(torch.zeros([self.n_routes, config.num_shared_virtual_tokens, config.num_layers]))
+                torch.nn.init.constant_(self.mask, 2.5)
             else:
                 self.mask = torch.nn.Parameter(torch.zeros([config.num_shared_virtual_tokens, config.num_layers]))
                 # torch.nn.init.constant_(self.mask, 2.5)

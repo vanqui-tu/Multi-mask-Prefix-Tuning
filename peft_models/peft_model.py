@@ -291,7 +291,7 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
         prompt_encoder = self.prompt_encoder
 
         prompt_tokens = self.prompt_tokens.unsqueeze(0).expand(batch_size, -1).to(self.device)
-        prompts = self.prompt_encoder(prompt_tokens, input_ids, inputs_embeds, attention_mask)
+        # prompts = self.prompt_encoder(prompt_tokens, input_ids, inputs_embeds, attention_mask)
 
         prompt_tokens = prompt_tokens[:, : peft_config.num_virtual_tokens]
 
@@ -329,7 +329,7 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
         if peft_config.apply_adaptive_mask == True:
             # print(past_key_values.shape)
             # print(mask.shape)
-            if peft_config.apply_adaptive_mask == True:
+            if peft_config.apply_adaptive_subset_mask == True:
                 mask = mask.squeeze(1)
             # print(torch.sigmoid(mask).unsqueeze(3).unsqueeze(4).repeat(1,1, peft_config.num_transformer_submodules, peft_config.num_attention_heads, peft_config.token_dim // peft_config.num_attention_heads).shape)
             # print(torch.sigmoid(mask).unsqueeze(2).unsqueeze(4).repeat(1,1, peft_config.num_attention_heads, 1, peft_config.token_dim // peft_config.num_attention_heads).shape)

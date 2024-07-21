@@ -186,7 +186,7 @@ def train(args):
         if args.method == 'prompt-routing' or args.method == 'prefix-routing':
             tuning_params = [
                 # {'params': model.base_model.parameters(), 'lr': args.lr},
-                {'params': model.prompt_encoder.embedding.parameters(), 'lr': args.subsetlr}, 
+                {'params': model.prompt_encoder.mask, 'lr': args.subsetlr}, 
                 {'params': model.prompt_encoder.router.parameters(), 'lr': args.routerlr},
                 {'params': model.prompt_encoder.sharedEmbedding.parameters(), 'lr': args.sharedEmbeddinglr}
                 ]
@@ -229,14 +229,14 @@ def train(args):
         model.train()
         train_loss, step, log_loss, train_time = train_epoch(model, optimizer, scheduler, scaler, train_dataloader, accum_steps, tb_writer, step, log_step, log_loss, device, metric, tokenizer)
         train_time_total += train_time
-        if args.method == 'prompt-routing':
+        if args.method == 'prompt-routing' or args.method == 'prefix-routing':
             l.write(f"Train: {model.prompt_encoder.load_counts}\n")
             model.prompt_encoder.print_and_reset_load_counts() 
         # Validation
         model.eval()
         with torch.no_grad():
             val_loss, preds, answers = evaluate_epoch(model, scaler, val_dataloader, device, tokenizer, text_to_text, test=False)
-            if args.method == 'prompt-routing':
+            if args.method == 'prompt-routing' or args.method == 'prefix-routing':
                 l.write(f"Validation: {model.prompt_encoder.load_counts}\n")
                 model.prompt_encoder.print_and_reset_load_counts() 
             # n = preds.count('entailment')
@@ -304,7 +304,7 @@ def train(args):
         #     if patience_score == 0:
         #         print("Patience of score-based early stopping has reached 0. No more updates.")
 
-        if args.method == 'prompt-routing':
+        if args.method == 'prompt-routing' or args.method == 'prefix-routing':
             l.write(f"Test: {model.prompt_encoder.load_counts}\n")
             model.prompt_encoder.print_and_reset_load_counts() 
             print()
