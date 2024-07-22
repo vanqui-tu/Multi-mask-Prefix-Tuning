@@ -125,7 +125,7 @@ def train(args):
 
     # Dataloader
     text_to_text = 't5' in args.model_name_or_path
-    train_dataloader, val_dataloader, test_dataloader, num_labels, metric = prepare_dataset(args.dataset_name, tokenizer, step_batch_size, max_length=max_length, text_to_text=text_to_text, seed=args.random_seed)
+    train_dataloader, val_dataloader, test_dataloader, num_labels, metric = prepare_dataset(args.dataset_name, tokenizer, step_batch_size, max_length=max_length, text_to_text=text_to_text, seed=args.seed)
     
     ### PEFT configurations
     task_type = "SEQ_CLS" if "roberta" in args.model_name_or_path else "SEQ_2_SEQ_LM"
@@ -141,7 +141,7 @@ def train(args):
     elif args.method == "prompt-routing":
         peft_config = PromptRoutingConfig(task_type=task_type, num_virtual_tokens=args.num_virtual_tokens, num_shared_virtual_tokens=args.num_shared_virtual_tokens, num_virtual_tokens_full=args.num_virtual_tokens_full, perturb_router=args.perturb_router, topk=args.topk, stochastic=args.stochastic, gumbel=args.gumbel, shareType = args.shareType, apply_adaptive_mask = args.apply_adaptive_mask)
     elif args.method == "prefix-routing":
-        peft_config = PrefixRoutingConfig(task_type=task_type, num_virtual_tokens=args.num_virtual_tokens, num_shared_virtual_tokens=args.num_shared_virtual_tokens, num_virtual_tokens_full=args.num_virtual_tokens_full, perturb_router=args.perturb_router, topk=args.topk, stochastic=args.stochastic, gumbel=args.gumbel, shareType = args.shareType, apply_adaptive_mask = args.apply_adaptive_mask, apply_adaptive_subset_mask = args.apply_adaptive_subset_mask)
+        peft_config = PrefixRoutingConfig(task_type=task_type, num_virtual_tokens=args.num_virtual_tokens, num_shared_virtual_tokens=args.num_shared_virtual_tokens, num_virtual_tokens_full=args.num_virtual_tokens_full, perturb_router=args.perturb_router, topk=args.topk, stochastic=args.stochastic, gumbel=args.gumbel, shareType = args.shareType, apply_adaptive_mask = args.apply_adaptive_mask, apply_adaptive_subset_mask = args.apply_adaptive_subset_mask, dropout_rate=args.dropout_rate)
 
     # Pre-trained model configuraitons
     config = AutoConfig.from_pretrained(model_name_or_path)
@@ -585,7 +585,7 @@ if __name__ == "__main__":
     parser.add_argument('--dataset_name', type=str, default='cola')
     parser.add_argument('--model_name_or_path', type=str, default='roberta-base')
     parser.add_argument('--tokenizer_name_or_path', type=str, default='roberta-base')
-    parser.add_argument('--random_seed', type=int, default=42)
+    # parser.add_argument('--random_seed', type=int, default=42)
 
     parser.add_argument('--method', type=str, choices=['full', 'lora', 'prefix-tuning', 'p-tuning', 'prompt-tuning', 'prompt-routing', 'prefix-routing']) 
     parser.add_argument('--num_virtual_tokens', type=int, default=None)
@@ -609,6 +609,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--apply_adaptive_mask', type=_bool, default=True)
     parser.add_argument('--apply_adaptive_subset_mask', type=_bool, default=True)
+    parser.add_argument('--droptout_rate', type=float, default=0.2)
 
     args = parser.parse_args()
     print(args)

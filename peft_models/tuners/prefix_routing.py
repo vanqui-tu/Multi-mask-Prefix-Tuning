@@ -102,7 +102,11 @@ class PrefixRoutingConfig(PromptLearningConfig):
     )
     apply_adaptive_subset_mask: Optional[bool] = field(
         default=False,
-        metadata={"help": "Whether to apply adaptive mask on prompt (prefix)."},
+        metadata={"help": "Whether to apply multiple mask."},
+    )   
+    dropout_rate: Optional[float] = field(
+        default=0.2,
+        metadata={"help": "Dropout rate for router."},
     )   
 
 
@@ -140,7 +144,7 @@ class PrefixRoutingEncoder(torch.nn.Module):
             self.router = torch.nn.Sequential(
                 # torch.nn.utils.weight_norm(linear, dim=0),
                 linear,
-                torch.nn.Dropout(p=0.2),
+                torch.nn.Dropout(p=self.config.dropout_rate),
             )        
         
         self.load_infos = {"Train": defaultdict(list), "Validation": defaultdict(list), "Test": defaultdict(list)}
@@ -166,7 +170,7 @@ class PrefixRoutingEncoder(torch.nn.Module):
         hiddens = inputs_embeds 
         sentence_sum = torch.sum(hiddens * attention_mask.unsqueeze(-1), dim=1)
         non_zero_count = torch.clamp(torch.sum(attention_mask, dim=1, keepdim=True), min=1)
-        sentence_embeds = sentence_sum / non_zero_count.float()
+        sentence_embeds = torch.autograd.Variable(sentence_sum / non_zero_count.float(), requires_grad=True)    ### QUI
         mask = None
         if not self.config.stochastic:
             probs = self.router.forward(sentence_embeds)
@@ -193,7 +197,8 @@ class PrefixRoutingEncoder(torch.nn.Module):
             # mask = torch.cat((self.mask, self.subsetMask[idx]), dim=3)
             if self.config.apply_adaptive_mask == True:
                 if self.config.apply_adaptive_subset_mask:
-                    mask = self.mask[idx_route]
+                    # mask = self.mask[idx_route]
+                    mask = torch.sum(self.mask.unsqueeze(0).repeat(batch_size, 1, 1, 1) * probs.unsqueeze(-1).unsqueeze(-1), dim=1)   ### QUI 
                 else:
                     mask = self.mask.unsqueeze(0).repeat(batch_size, 1, 1)
                     subsetMask = self.subsetMask[idx_route]
