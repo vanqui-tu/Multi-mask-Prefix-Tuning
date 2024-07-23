@@ -34,3 +34,6 @@ Test result | Loss : 0.0 | Score : 94.6
 method='prefix-routing' dataset_name='cb' lr=0.01 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
 Took 4.12 minutes for training / 3.00 seconds per epoch
 Test result | Loss : 0.0 | Score : 94.6
+method='prefix-routing' dataset_name='cb' lr=0.01 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 2.24 minutes for training / 1.58 seconds per epoch
+Test result | Loss : 0.0 | Score : 94.6

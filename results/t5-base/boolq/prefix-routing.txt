@@ -22,3 +22,15 @@ Test result | Loss : 0.0 | Score : 78.7
 method='prefix-routing' dataset_name='boolq' lr=0.005 batch_size=32 epoch=30 num_virtual_tokens=1 random_seed=42
 Took 55.69 minutes for training / 69.07 seconds per epoch
 Test result | Loss : 0.0 | Score : 79.0
+method='prefix-routing' dataset_name='boolq' lr=0.01 batch_size=32 epoch=15 num_virtual_tokens=1 random_seed=42
+Took 25.33 minutes for training / 69.96 seconds per epoch
+Test result | Loss : 0.0 | Score : 79.1
+method='prefix-routing' dataset_name='boolq' lr=0.01 batch_size=32 epoch=15 num_virtual_tokens=1 random_seed=42
+Took 26.64 minutes for training / 71.41 seconds per epoch
+Test result | Loss : 0.0 | Score : 78.8
+method='prefix-routing' dataset_name='boolq' lr=0.01 batch_size=32 epoch=15 num_virtual_tokens=1 random_seed=42
+Took 25.95 minutes for training / 71.21 seconds per epoch
+Test result | Loss : 0.0 | Score : 78.7
+method='prefix-routing' dataset_name='boolq' lr=0.01 batch_size=32 epoch=15 num_virtual_tokens=1 random_seed=42
+Took 27.24 minutes for training / 72.75 seconds per epoch
+Test result | Loss : 0.0 | Score : 78.6

@@ -205,3 +205,6 @@ Test result | Loss : 0.0 | Score : 76.5
 method='prefix-routing' dataset_name='rte_superglue' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
 Took 29.63 minutes for training / 28.14 seconds per epoch
 Test result | Loss : 0.0 | Score : 76.9
+method='prefix-routing' dataset_name='rte_superglue' lr=0.01 batch_size=32 epoch=50 num_virtual_tokens=1 random_seed=42
+Took 12.46 minutes for training / 11.24 seconds per epoch
+Test result | Loss : 0.0 | Score : 77.3

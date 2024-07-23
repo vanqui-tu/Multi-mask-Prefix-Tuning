@@ -1,0 +1,200 @@
+Epoch 1
+Train: tensor([ 305.,  345., 1140.,  450.], device='cuda:0')
+Validation: tensor([  0.,   0., 500.,   0.], device='cuda:0')
+Test: tensor([  0.,   0., 554.,   0.], device='cuda:0')
+Epoch 2
+Train: tensor([ 141.,  114., 1794.,  191.], device='cuda:0')
+Validation: tensor([  0.,   0., 500.,   0.], device='cuda:0')
+Test: tensor([  0.,   0., 554.,   0.], device='cuda:0')
+Epoch 3
+Train: tensor([ 122.,  111., 1629.,  378.], device='cuda:0')
+Validation: tensor([  0.,  14., 480.,   6.], device='cuda:0')
+Test: tensor([  0.,   4., 544.,   6.], device='cuda:0')
+Epoch 4
+Train: tensor([ 147.,  210., 1733.,  150.], device='cuda:0')
+Validation: tensor([  0.,   0., 500.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 5
+Train: tensor([ 134.,  719., 1270.,  117.], device='cuda:0')
+Validation: tensor([  0., 500.,   0.,   0.], device='cuda:0')
+Test: tensor([  0., 554.,   0.,   0.], device='cuda:0')
+Epoch 6
+Train: tensor([ 153., 1296.,  208.,  583.], device='cuda:0')
+Validation: tensor([  0.,  76.,   0., 424.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 7
+Train: tensor([ 126., 1439.,   58.,  617.], device='cuda:0')
+Validation: tensor([  0., 484.,   0.,  16.], device='cuda:0')
+Test: tensor([  0., 536.,   0.,  18.], device='cuda:0')
+Epoch 8
+Train: tensor([ 112., 1041.,   65., 1022.], device='cuda:0')
+Validation: tensor([  0.,  42.,   0., 458.], device='cuda:0')
+Test: tensor([  0.,  20.,   0., 534.], device='cuda:0')
+Epoch 9
+Train: tensor([ 124., 1171.,   84.,  861.], device='cuda:0')
+Validation: tensor([  0., 492.,   0.,   8.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 10
+Train: tensor([ 114., 1414.,   96.,  616.], device='cuda:0')
+Validation: tensor([  0., 500.,   0.,   0.], device='cuda:0')
+Test: tensor([  0., 554.,   0.,   0.], device='cuda:0')
+Epoch 11
+Train: tensor([ 113., 1718.,  104.,  305.], device='cuda:0')
+Validation: tensor([  0., 500.,   0.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 12
+Train: tensor([ 116., 1764.,   98.,  262.], device='cuda:0')
+Validation: tensor([  0., 500.,   0.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 13
+Train: tensor([ 122., 1804.,  129.,  185.], device='cuda:0')
+Validation: tensor([  0., 500.,   0.,   0.], device='cuda:0')
+Test: tensor([  0., 554.,   0.,   0.], device='cuda:0')
+Epoch 14
+Train: tensor([ 122., 1847.,   89.,  182.], device='cuda:0')
+Validation: tensor([  0., 500.,   0.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 15
+Train: tensor([ 119., 1766.,   78.,  277.], device='cuda:0')
+Validation: tensor([  0., 460.,   0.,  40.], device='cuda:0')
+Test: tensor([  0., 498.,   0.,  56.], device='cuda:0')
+Epoch 16
+Train: tensor([ 147., 1555.,  195.,  343.], device='cuda:0')
+Validation: tensor([  0., 498.,   2.,   0.], device='cuda:0')
+Test: tensor([  0., 548.,   4.,   2.], device='cuda:0')
+Epoch 17
+Train: tensor([ 127., 1634.,  123.,  356.], device='cuda:0')
+Validation: tensor([  0., 386.,   4., 110.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 18
+Train: tensor([ 107., 1483.,  100.,  550.], device='cuda:0')
+Validation: tensor([  0., 490.,   0.,  10.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 19
+Train: tensor([ 125., 1605.,  311.,  199.], device='cuda:0')
+Validation: tensor([  0., 498.,   2.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 20
+Train: tensor([ 144., 1726.,  212.,  158.], device='cuda:0')
+Validation: tensor([  0., 496.,   0.,   4.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 21
+Train: tensor([ 126., 1424.,  568.,  122.], device='cuda:0')
+Validation: tensor([  0., 392., 104.,   4.], device='cuda:0')
+Test: tensor([  0., 428., 122.,   4.], device='cuda:0')
+Epoch 22
+Train: tensor([ 134.,  676., 1212.,  218.], device='cuda:0')
+Validation: tensor([  0.,  14., 464.,  22.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 23
+Train: tensor([ 115.,  176., 1289.,  660.], device='cuda:0')
+Validation: tensor([  0.,   0., 470.,  30.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 24
+Train: tensor([ 112.,  237., 1611.,  280.], device='cuda:0')
+Validation: tensor([  0.,   0., 498.,   2.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 25
+Train: tensor([ 117.,  291., 1640.,  192.], device='cuda:0')
+Validation: tensor([  0.,   0., 500.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 26
+Train: tensor([ 118.,  359., 1591.,  172.], device='cuda:0')
+Validation: tensor([  0.,   0., 496.,   4.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 27
+Train: tensor([ 122.,  435., 1520.,  163.], device='cuda:0')
+Validation: tensor([  0.,   6., 488.,   6.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 28
+Train: tensor([ 144.,  339., 1430.,  327.], device='cuda:0')
+Validation: tensor([  0.,  10., 440.,  50.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 29
+Train: tensor([ 139.,  168., 1480.,  453.], device='cuda:0')
+Validation: tensor([  0.,   0., 494.,   6.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 30
+Train: tensor([ 109.,   53., 1619.,  459.], device='cuda:0')
+Validation: tensor([  0.,   0., 490.,  10.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 31
+Train: tensor([ 103.,   38., 1584.,  515.], device='cuda:0')
+Validation: tensor([  0.,   0., 480.,  20.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 32
+Train: tensor([ 112.,   44., 1443.,  641.], device='cuda:0')
+Validation: tensor([  0.,   0., 480.,  20.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 33
+Train: tensor([ 114.,   53., 1546.,  527.], device='cuda:0')
+Validation: tensor([  0.,   0., 472.,  28.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 34
+Train: tensor([ 119.,   51., 1507.,  563.], device='cuda:0')
+Validation: tensor([  0.,   0., 468.,  32.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 35
+Train: tensor([ 127.,  113., 1506.,  494.], device='cuda:0')
+Validation: tensor([  0.,   0., 492.,   8.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 36
+Train: tensor([ 115.,  161., 1613.,  351.], device='cuda:0')
+Validation: tensor([  0.,   0., 492.,   8.], device='cuda:0')
+Test: tensor([  0.,   0., 548.,   6.], device='cuda:0')
+Epoch 37
+Train: tensor([ 124.,  149., 1641.,  326.], device='cuda:0')
+Validation: tensor([  0.,   0., 500.,   0.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 38
+Train: tensor([ 111.,  115., 1735.,  279.], device='cuda:0')
+Validation: tensor([  0.,   0., 496.,   4.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 39
+Train: tensor([ 112.,   84., 1612.,  432.], device='cuda:0')
+Validation: tensor([  0.,   0., 496.,   4.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 40
+Train: tensor([ 112.,   44., 1648.,  436.], device='cuda:0')
+Validation: tensor([  0.,   0., 490.,  10.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 41
+Train: tensor([ 102.,   51., 1553.,  534.], device='cuda:0')
+Validation: tensor([  0.,   0., 474.,  26.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 42
+Train: tensor([ 109.,   46., 1556.,  529.], device='cuda:0')
+Validation: tensor([  0.,   0., 476.,  24.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 43
+Train: tensor([ 108.,   35., 1439.,  658.], device='cuda:0')
+Validation: tensor([  0.,   0., 440.,  60.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 44
+Train: tensor([ 114.,   36., 1340.,  750.], device='cuda:0')
+Validation: tensor([  0.,   0., 424.,  76.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 45
+Train: tensor([ 103.,   35., 1387.,  715.], device='cuda:0')
+Validation: tensor([  0.,   0., 410.,  90.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 46
+Train: tensor([ 132.,   32., 1301.,  775.], device='cuda:0')
+Validation: tensor([  0.,   0., 410.,  90.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 47
+Train: tensor([ 121.,   27., 1272.,  820.], device='cuda:0')
+Validation: tensor([  0.,   0., 404.,  96.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 48
+Train: tensor([ 111.,   33., 1288.,  808.], device='cuda:0')
+Validation: tensor([  0.,   0., 420.,  80.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 49
+Train: tensor([ 101.,   32., 1335.,  772.], device='cuda:0')
+Validation: tensor([  0.,   0., 412.,  88.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')
+Epoch 50
+Train: tensor([  99.,   36., 1308.,  797.], device='cuda:0')
+Validation: tensor([  0.,   0., 414.,  86.], device='cuda:0')
+Test: tensor([0., 0., 0., 0.], device='cuda:0')

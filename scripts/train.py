@@ -585,7 +585,7 @@ if __name__ == "__main__":
     parser.add_argument('--dataset_name', type=str, default='cola')
     parser.add_argument('--model_name_or_path', type=str, default='roberta-base')
     parser.add_argument('--tokenizer_name_or_path', type=str, default='roberta-base')
-    # parser.add_argument('--random_seed', type=int, default=42)
+    parser.add_argument('--random_seed', type=int, default=42)
 
     parser.add_argument('--method', type=str, choices=['full', 'lora', 'prefix-tuning', 'p-tuning', 'prompt-tuning', 'prompt-routing', 'prefix-routing']) 
     parser.add_argument('--num_virtual_tokens', type=int, default=None)
@@ -609,7 +609,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--apply_adaptive_mask', type=_bool, default=True)
     parser.add_argument('--apply_adaptive_subset_mask', type=_bool, default=True)
-    parser.add_argument('--droptout_rate', type=float, default=0.2)
+    parser.add_argument('--dropout_rate', type=float, default=0.2)
 
     args = parser.parse_args()
     print(args)
