@@ -1,3 +1,0 @@
-method='p-tuning' dataset_name='rte_superglue' lr=0.5 batch_size=32 epoch=50 num_virtual_tokens=2 random_seed=42
-Took 9.56 minutes for training / 18.83 seconds per epoch
-Test result | Loss : 72.9 | Score : 72.9

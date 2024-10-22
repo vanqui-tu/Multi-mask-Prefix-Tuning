@@ -1,3 +1,0 @@
-method='prefix-tuning' dataset_name='wic' lr=0.005 batch_size=32 epoch=50 num_virtual_tokens=20 random_seed=42
-Took 13.73 minutes for training / 13.17 seconds per epoch
-Test result | Loss : 0.0 | Score : 64.1

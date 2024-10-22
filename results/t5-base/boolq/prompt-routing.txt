@@ -1,6 +1,0 @@
-method='prompt-routing' dataset_name='boolq' lr=0.05 batch_size=32 epoch=50 num_virtual_tokens=10 num_virtual_tokens_full=25 perturb_router=True topk=1 random_seed=42
-Took 44.65 minutes for training / 125.93 seconds per epoch
-Test result | Loss : 78.3 | Score : 78.3
-method='prompt-routing' dataset_name='boolq' lr=0.05 batch_size=32 epoch=10 num_virtual_tokens=5 num_virtual_tokens_full=20 perturb_router=True topk=1 random_seed=42
-Took 14.58 minutes for training / 50.37 seconds per epoch
-Test result | Loss : 73.2 | Score : 0.0
