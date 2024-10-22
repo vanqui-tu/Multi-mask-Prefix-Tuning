@@ -44,7 +44,8 @@ python scripts/train.py --lr 0.005 \
 ```
 Alternatively, you can run the example script:
 
-```bash run.sh
+```
+bash run.sh
 ```
 ## Acknowledgments
 This implementation is largely based on the HuggingFace PEFT library (https://github.com/huggingface/peft) and SMoP (https://github.com/jyjohnchoi/SMoP).
